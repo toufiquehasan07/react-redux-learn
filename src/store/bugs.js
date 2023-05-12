@@ -1,17 +1,17 @@
-import {
-  BUG_ADDED,
-  BUG_REMOVED,
-  BUG_RESOLVED,
-} from "../constants/action-types";
-let lasId = 0;
+/* define constants */
+const BUG_ADDED = "bugCreated";
+const BUG_REMOVED = "bugRemoved";
+const BUG_RESOLVED = "bugResolved";
+const LAST_ID = 0;
 
+/* define reducer */
 const bugReducer = (store = [], action) => {
   switch (action.type) {
     case BUG_ADDED:
       return [
         ...store,
         {
-          id: ++lasId,
+          id: LAST_ID + 1,
           description: action.payload.description,
           resolved: false,
         },
@@ -30,6 +30,34 @@ const bugReducer = (store = [], action) => {
     default:
       return store;
   }
+};
+
+/* define action creators */
+export const bugAdded = (description) => {
+  return {
+    type: BUG_ADDED,
+    payload: {
+      description,
+    },
+  };
+};
+
+export const bugRemoved = (id) => {
+  return {
+    type: BUG_REMOVED,
+    payload: {
+      id,
+    },
+  };
+};
+
+export const bugResolved = (id) => {
+  return {
+    type: BUG_RESOLVED,
+    payload: {
+      id,
+    },
+  };
 };
 
 export default bugReducer;
