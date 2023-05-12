@@ -1,11 +1,8 @@
 import React from "react";
+import Home from "./pages";
 
 const App = () => {
-  return (
-    <div>
-      <h1>React Redux Learn</h1>
-    </div>
-  );
+  return <Home />;
 };
 
 export default App;
