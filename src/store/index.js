@@ -1,12 +1,8 @@
-import { legacy_createStore as createStore } from "redux";
-import { devToolsEnhancer } from "@redux-devtools/extension";
+import { configureStore } from "@reduxjs/toolkit";
 import bugReducer from "./bugs";
 
-const store = createStore(
-  bugReducer,
-  devToolsEnhancer({
-    trace: true,
-  })
-);
+const store = configureStore({
+  reducer: bugReducer,
+});
 
 export default store;

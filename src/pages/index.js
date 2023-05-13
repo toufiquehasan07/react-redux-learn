@@ -8,17 +8,17 @@ const unsubscribe = store.subscribe(() => {
 
 function Home() {
   // // add bug
-  store.dispatch(bugAdded("Bug 1"));
-  store.dispatch(bugAdded("Bug 2"));
-  store.dispatch(bugAdded("Bug 3"));
+  store.dispatch(bugAdded({ description: "Bug 1" }));
+  store.dispatch(bugAdded({ description: "Bug 2" }));
+  store.dispatch(bugAdded({ description: "Bug 3" }));
 
   // unsubscribe();
 
   // remove bug
-  store.dispatch(bugRemoved(1));
+  store.dispatch(bugRemoved({ id: 2 }));
 
   // bug resolved
-  store.dispatch(bugResolved(3));
+  store.dispatch(bugResolved({ id: 3 }));
 
   return (
     <div>
