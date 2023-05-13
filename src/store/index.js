@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import bugReducer from "./bugs";
+import reducer from "./reducer";
 
 const store = configureStore({
-  reducer: bugReducer,
+  reducer,
 });
 
 export default store;
